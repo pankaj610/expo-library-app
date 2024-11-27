@@ -1,11 +1,12 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { MyComponent } from "./src/MyComponent";
+import RootLayout from "./app/_layout";
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <MyComponent />
+      <RootLayout />
     </View>
   );
 }
