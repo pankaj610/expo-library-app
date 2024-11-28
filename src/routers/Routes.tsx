@@ -65,7 +65,7 @@ const TabNavigator = () => (
 // Root Stack Navigator (for potential future extensions)
 const Stack = createNativeStackNavigator();
 
-const AppNavigator = () => (
+export const AppNavigator = () => (
   <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name="Main" component={TabNavigator} />
   </Stack.Navigator>
