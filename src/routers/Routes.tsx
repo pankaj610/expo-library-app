@@ -4,14 +4,29 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { BarChart, Grid } from 'react-native-svg-charts';
+
 
 
 // Screens
-const HomeScreen = () => (
-  <View style={styles.screen}>
-    <Text style={styles.text}>Home Screen</Text>
-  </View>
-);
+const HomeScreen = () => {
+  // Sample data for the chart
+  const data = [50, 10, 40, 95, 85, 20, 35, 53, 24, 50];
+
+  return (
+    <View style={styles.container}>
+      <BarChart
+        style={styles.chart}
+        data={data}
+        svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
+        contentInset={{ top: 30, bottom: 30 }}
+        spacingInner={0.2} // Adjust space between bars
+      >
+        <Grid />
+      </BarChart>
+    </View>
+  );
+};
 
 const ContactScreen = () => (
   <View style={styles.screen}>
@@ -80,6 +95,15 @@ export function RootRoutes() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+    backgroundColor: '#f9f9f9',
+  },
+  chart: {
+    height: 200,
+  },
   screen: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   text: { fontSize: 18, fontWeight: 'bold', color: 'black' },
 });
